@@ -6,8 +6,8 @@ plugins {
 	kotlin("plugin.jpa") version "2.2.21"
 }
 
-group = "com.example"
-version = "0.0.1-SNAPSHOT"
+group = "com.github.kndevelop"
+version = "v1.0.0"
 description = "Spring common Api"
 
 java {
@@ -54,5 +54,10 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-tasks.bootJar { enabled = false }
-tasks.jar { enabled = true }
+tasks.bootJar {
+	enabled = false
+}
+tasks.jar {
+	enabled = true
+	archiveClassifier.set("") // Spring Boot + Kotlin構成だとjar名 が *-plain.jar になるのでその対策
+}
