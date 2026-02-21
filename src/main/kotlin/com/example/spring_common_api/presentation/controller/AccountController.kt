@@ -9,7 +9,7 @@ import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/spring_common_api/account")
+@RequestMapping("/account")
 @Tag(name = "Account", description = "Account management APIs")
 class AccountController(
     private val accountService: AccountService

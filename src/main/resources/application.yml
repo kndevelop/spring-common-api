@@ -1,11 +1,14 @@
+server:
+  servlet:
+    context-path: /spring_common_api
 spring:
   application:
     name: spring_common_api
   datasource:
     url: jdbc:sqlite:spring_common_api.db
     driver-class-name: org.sqlite.JDBC
-    username: 
-    password: 
+    username:
+    password:
   jpa:
     database-platform: org.hibernate.community.dialect.SQLiteDialect
     hibernate:
@@ -18,5 +21,4 @@ logging:
 
 springdoc:
   swagger-ui:
-    path: /spring_common_api/swagger-ui
-
+    path: /swagger-ui

@@ -43,9 +43,9 @@ class SecurityConfig(
             .csrf { it.disable() }
             .authorizeHttpRequests {
                 it.requestMatchers(
-                    "/spring_common_api/login",
-                    "/spring_common_api/account/register",
-                    "/spring_common_api/swagger-ui/**",
+                    "/login",
+                    "/account/register",
+                    "/swagger-ui/**",
                     "/v3/api-docs/**",
                     "/swagger-ui/**",
                     "/error"
@@ -53,7 +53,7 @@ class SecurityConfig(
                 it.anyRequest().authenticated()
             }
             .logout {
-                it.logoutUrl("/spring_common_api/logout")
+                it.logoutUrl("/logout")
                 it.logoutSuccessHandler { _, response, _ ->
                     response.status = HttpServletResponse.SC_OK
                 }

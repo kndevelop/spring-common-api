@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/spring_common_api")
 @Tag(name = "Login", description = "Authenticate APIs")
 class LoginController() {
     @Autowired
