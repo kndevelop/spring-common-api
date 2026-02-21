@@ -1,0 +1,17 @@
+{
+	"name": "Java (Community)",
+	"dockerComposeFile": "docker-compose.yml",
+	"remoteUser": "vscode",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"postCreateCommand": "chmod +x gradlew && ./gradlew build",
+	"postStartCommand": "./gradlew bootRun",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"vscjava.vscode-java-pack",
+				"vmware.vscode-boot-dev-pack"
+			]
+		}
+	}
+}

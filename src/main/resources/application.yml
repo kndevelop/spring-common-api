@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring_common_api
+  datasource:
+    url: jdbc:sqlite:spring_common_api.db
+    driver-class-name: org.sqlite.JDBC
+    username: 
+    password: 
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /spring_common_api/swagger-ui
+
