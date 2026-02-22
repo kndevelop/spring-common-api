@@ -1,9 +1,15 @@
 plugins {
-	kotlin("jvm") version "2.2.21"
-	kotlin("plugin.spring") version "2.2.21"
+	kotlin("jvm") version "2.1.10"
+	kotlin("plugin.spring") version "2.1.10"
 	id("io.spring.dependency-management") version "1.1.7"
-	kotlin("plugin.jpa") version "2.2.21"
+	kotlin("plugin.jpa") version "2.1.10"
 	`java-library`
+}
+
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.boot:spring-boot-dependencies:3.2.5")
+	}
 }
 
 group = "com.github.kndevelop"
@@ -54,10 +60,6 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
-tasks.bootJar {
-	enabled = false
-}
 tasks.jar {
 	enabled = true
-	archiveClassifier.set("") // Spring Boot + Kotlin構成だとjar名 が *-plain.jar になるのでその対策
 }
