@@ -1,13 +1,13 @@
 plugins {
 	kotlin("jvm") version "2.2.21"
 	kotlin("plugin.spring") version "2.2.21"
-	id("org.springframework.boot") version "4.0.2"
 	id("io.spring.dependency-management") version "1.1.7"
 	kotlin("plugin.jpa") version "2.2.21"
+	`java-library`
 }
 
-group = "com.example"
-version = "0.0.1-SNAPSHOT"
+group = "com.github.kndevelop"
+version = "v1.0.0"
 description = "Spring common Api"
 
 java {
@@ -21,10 +21,10 @@ repositories {
 }
 
 dependencies {
+	api("org.springframework.boot:spring-boot-starter-security")
+	api("org.springframework.boot:spring-boot-starter-validation")
+	api("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-security")
-	implementation("org.springframework.boot:spring-boot-starter-validation")
-	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
@@ -52,4 +52,12 @@ allOpen {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks.bootJar {
+	enabled = false
+}
+tasks.jar {
+	enabled = true
+	archiveClassifier.set("") // Spring Boot + Kotlin構成だとjar名 が *-plain.jar になるのでその対策
 }

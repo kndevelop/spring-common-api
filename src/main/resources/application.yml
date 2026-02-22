@@ -1,6 +1,6 @@
-server:
-  servlet:
-    context-path: /spring_common_api
+common:
+  api:
+    base-path: /common
 spring:
   application:
     name: spring_common_api
